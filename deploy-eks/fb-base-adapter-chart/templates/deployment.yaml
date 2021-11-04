@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fb-base-adapter-{{ .Values.environmentName }}
+  namespace: formbuilder-base-adapter-{{ .Values.environmentName }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fb-base-adapter-{{ .Values.environmentName }}
+  template:
+    metadata:
+      labels:
+        app: fb-base-adapter-{{ .Values.environmentName }}
+        appGroup: formbuilder-base-adapter
+    spec:
+      containers:
+      - name: fb-base-adapter-{{ .Values.environmentName }}
+        image: 754256621582.dkr.ecr.eu-west-2.amazonaws.com/formbuilder/fb-base-adapter:{{ .Values.circleSha1 }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4567
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 4567
+          initialDelaySeconds: 15
+          periodSeconds: 5
+          successThreshold: 1
+        env:
+        - name: HOST
+          value: formbuilder-base-adapter-{{ .Values.environmentName }}.apps.live.cloud-platform.service.justice.gov.uk
+        - name: ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: fb-base-adapter-app-secrets-{{ .Values.environmentName }}
+              key: encryption_key

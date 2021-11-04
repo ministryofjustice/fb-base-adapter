@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: fb-base-adapter-{{ .Values.environmentName }}
+  annotations:
+    external-dns.alpha.kubernetes.io/set-identifier: "fb-base-adapter-{{ .Values.environmentName }}-formbuilder-base-adapter-{{ .Values.environmentName }}-green"
+    external-dns.alpha.kubernetes.io/aws-weight: "0"
+spec:
+  tls:
+    - hosts:
+        - formbuilder-base-adapter-{{ .Values.environmentName }}.apps.live.cloud-platform.service.justice.gov.uk
+  rules:
+  - host: formbuilder-base-adapter-{{ .Values.environmentName }}.apps.live.cloud-platform.service.justice.gov.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: formbuilder-base-adapter
+          servicePort: 4567
