@@ -4,7 +4,7 @@ metadata:
   name: fb-base-adapter-{{ .Values.environmentName }}
   annotations:
     external-dns.alpha.kubernetes.io/set-identifier: "fb-base-adapter-{{ .Values.environmentName }}-formbuilder-base-adapter-{{ .Values.environmentName }}-blue"
-    external-dns.alpha.kubernetes.io/aws-weight: "100"
+    external-dns.alpha.kubernetes.io/aws-weight: "0"
 spec:
   tls:
     - hosts:
