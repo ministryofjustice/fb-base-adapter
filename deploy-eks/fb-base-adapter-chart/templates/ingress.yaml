@@ -8,9 +8,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - formbuilder-base-adapter-{{ .Values.environmentName }}.apps.live.cloud-platform.service.justice.gov.uk
+        - formbuilder-base-adapter-{{ .Values.environmentName }}.apps.live-1.cloud-platform.service.justice.gov.uk
   rules:
-  - host: formbuilder-base-adapter-{{ .Values.environmentName }}.apps.live.cloud-platform.service.justice.gov.uk
+  - host: formbuilder-base-adapter-{{ .Values.environmentName }}.apps.live-1.cloud-platform.service.justice.gov.uk
     http:
       paths:
       - path: /
