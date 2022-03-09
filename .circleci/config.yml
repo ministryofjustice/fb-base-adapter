@@ -48,13 +48,6 @@ jobs:
             ENVIRONMENT_NAME: test
           command: './deploy-scripts/bin/build'
       - run:
-          name: deploy to test environment
-          environment:
-            APPLICATION_NAME: fb-base-adapter
-            PLATFORM_ENV: test
-            K8S_NAMESPACE: formbuilder-base-adapter-test
-          command: './deploy-scripts/bin/deploy'
-      - run:
           name: deploy to test environment in new cluster
           environment:
             APPLICATION_NAME: fb-base-adapter
