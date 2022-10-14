@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fb-base-adapter-{{ .Values.environmentName }}
@@ -15,6 +15,9 @@ spec:
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: formbuilder-base-adapter
-          servicePort: 4567
+          service:
+            name: formbuilder-base-adapter
+            port:
+              number: 4567
