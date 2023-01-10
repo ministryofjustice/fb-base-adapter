@@ -33,12 +33,12 @@ jobs:
       - setup_remote_docker
       - add_ssh_keys:
           fingerprints:
-            - "10:76:81:db:22:4d:03:9a:33:e8:3b:64:a7:34:0c:e2"
+            - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
       - run:
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_107681db224d039a33e83b64a7340ce2" >> $BASH_ENV
+            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_ed25519_dfd0db5c80f6297d71c2cf965194aa82" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
           command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
@@ -76,6 +76,8 @@ workflows:
     jobs:
       - tests
       - build_and_deploy_to_test:
+          context: &moj-forms-context
+            - moj-forms
           requires:
             - tests
           filters:
@@ -84,6 +86,7 @@ workflows:
                 - master
                 - deploy-to-test
       - acceptance_tests:
+          context: *moj-forms-context
           requires:
             - build_and_deploy_to_test
           filters:
