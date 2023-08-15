@@ -8,9 +8,7 @@ updates:
     timezone: Europe/London
   open-pull-requests-limit: 10
   reviewers:
-  - brenetic
   - mattempty
-  - njseeto
 - package-ecosystem: docker
   directory: "/"
   schedule:
@@ -19,6 +17,4 @@ updates:
     timezone: Europe/London
   open-pull-requests-limit: 10
   reviewers:
-  - brenetic
   - mattempty
-  - njseeto
