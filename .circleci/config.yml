@@ -59,6 +59,7 @@ jobs:
     docker: *ecr_image
     resource_class: large
     steps:
+      - checkout
       - setup_remote_docker
       - run: *deploy_scripts
       - run:
