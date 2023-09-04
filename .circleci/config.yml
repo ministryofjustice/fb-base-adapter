@@ -114,13 +114,11 @@ workflows:
             branches:
               only:
                 - master
-                - ecr-migration
       - acceptance_tests:
           context: *moj-forms-context
           requires:
             - build_and_deploy_to_test
           filters:
             branches:
-              only: 
+              only:
                 - master
-                - ecr-migration
