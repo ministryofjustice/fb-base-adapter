@@ -6,7 +6,7 @@ updates:
     interval: daily
     time: "03:00"
     timezone: Europe/London
-  open-pull-requests-limit: 10
+  open-pull-requests-limit: 0
   reviewers:
   - mattempty
   - chrispymm
@@ -18,7 +18,7 @@ updates:
     interval: daily
     time: "03:00"
     timezone: Europe/London
-  open-pull-requests-limit: 10
+  open-pull-requests-limit: 0
   reviewers:
   - mattempty
   - chrispymm
