@@ -66,7 +66,7 @@ jobs:
             echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_ed25519_dfd0db5c80f6297d71c2cf965194aa82" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
-          command: 'git clone --branch temporary-ecr-creds git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
+          command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
       - run:
           name: build and push docker images
           environment:
