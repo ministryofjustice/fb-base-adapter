@@ -114,6 +114,7 @@ workflows:
             branches:
               only:
                 - master
+                - update-dependabot
       - acceptance_tests:
           context: *moj-forms-context
           requires:
@@ -122,3 +123,4 @@ workflows:
             branches:
               only:
                 - master
+                - update-dependabot
