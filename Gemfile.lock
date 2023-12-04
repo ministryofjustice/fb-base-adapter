@@ -68,7 +68,7 @@ GEM
       macaddr (~> 1.0)
 
 PLATFORMS
-  x86_64-darwin-21
+  ruby
 
 DEPENDENCIES
   jwe (~> 0.4.0)
