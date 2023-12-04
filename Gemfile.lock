@@ -68,10 +68,9 @@ GEM
       macaddr (~> 1.0)
 
 PLATFORMS
-  ruby
+  x86_64-darwin-21
 
 DEPENDENCIES
-  eventmachine
   jwe (~> 0.4.0)
   pry
   rack-test

@@ -6,7 +6,6 @@ gem 'rufus-scheduler'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'thin'
-gem 'eventmachine'
 gem 'tzinfo-data'
 gem 'uuid'
 
