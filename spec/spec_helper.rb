@@ -15,7 +15,7 @@ end
 RSpec.configure { |c| c.include RSpecMixin }
 
 SimpleCov.start 'rails' do
-  add_filter 'tmp'
+  add_filter %w[ tmp coverage]
   enable_coverage(:branch)
   enable_coverage_for_eval
 end
