@@ -1,6 +1,7 @@
 require 'rack/test'
 require 'rspec'
 require 'simplecov'
+require 'simplecov-console'
 
 ENV['RACK_ENV'] = 'test'
 
