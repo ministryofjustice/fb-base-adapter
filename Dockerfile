@@ -16,7 +16,7 @@ COPY --chown=appuser:appgroup Gemfile Gemfile.lock ./
 RUN gem install bundler
 
 RUN bundle config set no-cache 'true'
-RUN bundle config set without 'test development'
+RUN bundle config set without 'development'
 RUN bundle config set jobs '4'
 RUN bundle install
 
