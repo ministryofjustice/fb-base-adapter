@@ -2,7 +2,11 @@ FROM alpine:latest
 
 ARG UID=1001
 
-RUN apk add build-base bash libcurl ruby ruby-dev
+RUN apk add build-base bash libcurl openssh openssl-dev ruby ruby-dev
+RUN rm -rf /var/cache/apk/*
+
+RUN mkdir -p ~/.ssh && \
+    ssh-keyscan github.com > ~/.ssh/known_hosts
 
 RUN addgroup -g ${UID} -S appgroup && \
   adduser -u ${UID} -S appuser -G appgroup
