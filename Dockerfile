@@ -1,8 +1,8 @@
-FROM ruby:3.2.2-alpine3.18
+FROM alpine:latest
 
 ARG UID=1001
 
-RUN apk add build-base bash libcurl
+RUN apk add build-base bash libcurl ruby ruby-dev
 
 RUN addgroup -g ${UID} -S appgroup && \
   adduser -u ${UID} -S appuser -G appgroup
