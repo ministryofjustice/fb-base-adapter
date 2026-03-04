@@ -15,13 +15,15 @@ COPY --chown=appuser:appgroup Gemfile Gemfile.lock ./
 
 RUN gem install bundler
 
-ARG BUNDLE_ARGS='--jobs 4 --without test development'
-RUN bundle install --no-cache ${BUNDLE_ARGS}
+RUN bundle config set no-cache 'true'
+RUN bundle config set without 'test development'
+RUN bundle config set jobs '4'
+RUN bundle install
 
 COPY --chown=appuser:appgroup . .
 
-ENV APP_PORT 4567
+ENV APP_PORT=4567
 EXPOSE $APP_PORT
 
 USER ${UID}
-CMD ./start.sh
+CMD ["./start.sh"]
