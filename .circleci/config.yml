@@ -59,6 +59,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
+            - "e2:85:66:4e:37:98:32:e2:1b:47:7d:55:76:2b:08:2b"
       - run:
           name: Setup base environment variable
           command: |
