@@ -105,8 +105,12 @@ workflows:
       - login-to-aws:
           context: &moj-forms-context
             - moj-forms
+      - tests:
+          requires:
+            - login-to-aws
       - build_and_deploy_to_test:
           context: *moj-forms-context
           requires:
             - moj-forms
+
 
