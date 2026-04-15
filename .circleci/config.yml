@@ -58,8 +58,8 @@ jobs:
             cat bash.env >> $BASH_ENV
       - add_ssh_keys:
           fingerprints:
-#            - "SHA256:Dh0nMAvv/t4lCYiJMLp0d6pOThzztne7n33yzOyW6EA"
-#            - "SHA256:So7UAc16Pp6hsbD+TdRxH2/Erx7itD9fPvq8+aX5qVk"
+            - "SHA256:TAJKAzjCvnpkupEB+xWV/j1HyhI2+NfOQFA8FF+UunA"
+            - "SHA256:77RWJMG9cMPp3hudGS7/uLPGcIbUZiLWCdbBP1IIPqM"
 #            - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
 #            - "e2:85:66:4e:37:98:32:e2:1b:47:7d:55:76:2b:08:2b"
 #            - "74:6c:a0:0a:2e:2d:40:1c:14:83:fc:2f:bf:46:cb:b6"
@@ -69,7 +69,7 @@ jobs:
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_ed25519_SHA256:Dh0nMAvv/t4lCYiJMLp0d6pOThzztne7n33yzOyW6EA" >> $BASH_ENV
+            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_ed25519_SHA256:TAJKAzjCvnpkupEB+xWV/j1HyhI2+NfOQFA8FF+UunA" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
           command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
