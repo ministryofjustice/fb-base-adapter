@@ -116,4 +116,11 @@ workflows:
             branches:
               only:
                 - main
-
+      - acceptance_tests:
+          context: *moj-forms-context
+          requires:
+            - build_and_deploy_to_test
+          filters:
+            branches:
+              only:
+                - main
