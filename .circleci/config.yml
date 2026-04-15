@@ -112,5 +112,8 @@ workflows:
           context: *moj-forms-context
           requires:
             - moj-forms
-
+          filters:
+            branches:
+              only:
+                - main
 
