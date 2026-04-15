@@ -112,10 +112,6 @@ workflows:
           context: *moj-forms-context
           requires:
             - tests
-          filters:
-            branches:
-              only:
-                - main
       - acceptance_tests:
           context: *moj-forms-context
           requires:
