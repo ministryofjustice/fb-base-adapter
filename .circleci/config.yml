@@ -58,7 +58,7 @@ jobs:
             cat bash.env >> $BASH_ENV
       - add_ssh_keys:
           fingerprints:
-#            - "SHA256:77RWJMG9cMPp3hudGS7/uLPGcIbUZiLWCdbBP1IIPqM"
+            - SHA256:77RWJMG9cMPp3hudGS7/uLPGcIbUZiLWCdbBP1IIPqM
 #            - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
 #            - "e2:85:66:4e:37:98:32:e2:1b:47:7d:55:76:2b:08:2b"
 #            - "74:6c:a0:0a:2e:2d:40:1c:14:83:fc:2f:bf:46:cb:b6"
@@ -81,13 +81,13 @@ jobs:
           environment:
             ENVIRONMENT_NAME: test
           command: './deploy-scripts/bin/build'
-#      - run:
-#          name: deploy to test environment in new cluster
-#          environment:
-#            APPLICATION_NAME: fb-base-adapter
-#            PLATFORM_ENV: test
-#            K8S_NAMESPACE: formbuilder-base-adapter-test
-#          command: './deploy-scripts/bin/deploy-eks'
+      - run:
+          name: deploy to test environment in new cluster
+          environment:
+            APPLICATION_NAME: fb-base-adapter
+            PLATFORM_ENV: test
+            K8S_NAMESPACE: formbuilder-base-adapter-test
+          command: './deploy-scripts/bin/deploy-eks'
       - slack/status: *slack_status
   acceptance_tests:
     docker: *ecr_image
