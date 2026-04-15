@@ -75,7 +75,6 @@ jobs:
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-#            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_4256f6e85f50553580684b7225e792f2" >> $BASH_ENV
             echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_e7be28e773520eebdb5375d2099d5ed6" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
