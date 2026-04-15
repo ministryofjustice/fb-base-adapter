@@ -61,6 +61,8 @@ jobs:
             - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
             - "e2:85:66:4e:37:98:32:e2:1b:47:7d:55:76:2b:08:2b"
             - "74:6c:a0:0a:2e:2d:40:1c:14:83:fc:2f:bf:46:cb:b6"
+            - "SHA256:3SMEWbx0WkZ7O5YcSKys3Gl1CdT5b+NBVWR8GhpO4Qc"
+            - "SHA256:6MqDy4XS6Mexn0IMbHnbJPRX+DHI+D0RBK/iw2FZ7u0"
       - run:
           name: Setup base environment variable
           command: |
