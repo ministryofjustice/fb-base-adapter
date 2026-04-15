@@ -65,6 +65,10 @@ jobs:
 #            - "SHA256:3SMEWbx0WkZ7O5YcSKys3Gl1CdT5b+NBVWR8GhpO4Qc"
 #            - "SHA256:6MqDy4XS6Mexn0IMbHnbJPRX+DHI+D0RBK/iw2FZ7u0"
       - run:
+          name: List files in folder
+          command: |
+            ls -la ~/.ssh
+      - run:
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
