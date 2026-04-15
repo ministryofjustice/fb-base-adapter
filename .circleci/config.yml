@@ -58,12 +58,12 @@ jobs:
             cat bash.env >> $BASH_ENV
       - add_ssh_keys:
           fingerprints:
-            - SHA256:9S5LX7K6buk+PfqA9tqDaEFvj5n6NoXBCbkdLkNHhC8
-            - 42:56:f6:e8:5f:50:55:35:80:68:4b:72:25:e7:92:f2
-            - SHA256:5ZEJmn3tsV/K6GS6qXwJ/j/VRbryNTbWeMTU8C4lFx8
-            - e7:be:28:e7:73:52:0e:eb:db:53:75:d2:09:9d:5e:d6
-            - SHA256:iL30CyvjfNHw5rhRBewqugj9H+Kf9qBp/WGqQ+J/Dao
-            - SHA256:ff1T9KvmlPkN6sycmgoNhixBExDXC6HNzez8y40UQ/0
+            - "42:56:f6:e8:5f:50:55:35:80:68:4b:72:25:e7:92:f2"
+            - "SHA256:9S5LX7K6buk+PfqA9tqDaEFvj5n6NoXBCbkdLkNHhC8"
+            - "e7:be:28:e7:73:52:0e:eb:db:53:75:d2:09:9d:5e:d6"
+            - "SHA256:5ZEJmn3tsV/K6GS6qXwJ/j/VRbryNTbWeMTU8C4lFx8"
+            - "SHA256:iL30CyvjfNHw5rhRBewqugj9H+Kf9qBp/WGqQ+J/Dao"
+            - "SHA256:ff1T9KvmlPkN6sycmgoNhixBExDXC6HNzez8y40UQ/0"
 #            - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
 #            - "e2:85:66:4e:37:98:32:e2:1b:47:7d:55:76:2b:08:2b"
 #            - "74:6c:a0:0a:2e:2d:40:1c:14:83:fc:2f:bf:46:cb:b6"
