@@ -59,11 +59,8 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "62:af:a5:bf:2e:59:bd:c6:9d:57:a3:f8:1a:3d:58:5f"
-            - "SHA256:Yhf9HKLO66z8POxG+PChnlML8vCjPcGSC7j4tsgHHnc"
             - "42:56:f6:e8:5f:50:55:35:80:68:4b:72:25:e7:92:f2"
-            - "SHA256:9S5LX7K6buk+PfqA9tqDaEFvj5n6NoXBCbkdLkNHhC8"
             - "e7:be:28:e7:73:52:0e:eb:db:53:75:d2:09:9d:5e:d6"
-            - "SHA256:5ZEJmn3tsV/K6GS6qXwJ/j/VRbryNTbWeMTU8C4lFx8"
 #            - "42:56:f6:e8:5f:50:55:35:80:68:4b:72:25:e7:92:f2"
 #            - "SHA256:9S5LX7K6buk+PfqA9tqDaEFvj5n6NoXBCbkdLkNHhC8"
 #            - "e7:be:28:e7:73:52:0e:eb:db:53:75:d2:09:9d:5e:d6"
