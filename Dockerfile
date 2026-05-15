@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM ruby:3.3.11-alpine
 
 ARG UID=1001
 
