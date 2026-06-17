@@ -56,16 +56,22 @@ jobs:
       - run: &workspace_envs
           command: |
             cat bash.env >> $BASH_ENV
+      - run:
+          name: add github to known hosts
+          command: |
+            mkdir -p ~/.ssh
+            ssh-keygen github.com >> /.ssh/knownhosts
       - add_ssh_keys:
           fingerprints:
             - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
             - "e2:85:66:4e:37:98:32:e2:1b:47:7d:55:76:2b:08:2b"
             - "74:6c:a0:0a:2e:2d:40:1c:14:83:fc:2f:bf:46:cb:b6"
+            - "60:f7:08:ff:30:7c:47:d9:46:73:7a:4a:e6:e7:e4:53"
       - run:
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_ed25519_dfd0db5c80f6297d71c2cf965194aa82" >> $BASH_ENV
+            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_ed25519_60f708ff307c47d946737a4ae6e7e453" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
           command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
@@ -115,7 +121,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - fixing-pipeline-again
       - acceptance_tests:
           context: *moj-forms-context
           requires:
@@ -123,4 +129,4 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - fixing-pipeline-again
