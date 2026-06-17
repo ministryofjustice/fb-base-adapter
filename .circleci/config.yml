@@ -56,11 +56,6 @@ jobs:
       - run: &workspace_envs
           command: |
             cat bash.env >> $BASH_ENV
-      - run:
-          name: add github to known hosts
-          command: |
-            mkdir -p ~/.ssh
-            ssh-keygen github.com >> /.ssh/known_hosts
       - add_ssh_keys:
           fingerprints:
             - "df:d0:db:5c:80:f6:29:7d:71:c2:cf:96:51:94:aa:82"
