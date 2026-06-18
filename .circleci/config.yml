@@ -58,7 +58,7 @@ jobs:
             cat bash.env >> $BASH_ENV
       - add_ssh_keys:
           fingerprints:
-            - "60:f7:08:ff:30:7c:47:d9:46:73:7a:4a:e6:e7:e4:53"
+            - "de:bd:00:dd:33:2c:22:2c:70:9c:e0:e1:2b:92:a5:0e"
       - run:
           name: Add GitHub to known hosts
           command: |
@@ -68,7 +68,7 @@ jobs:
           name: Setup base environment variable
           command: |
             echo "export BUILD_SHA=$CIRCLE_SHA1" >> $BASH_ENV
-            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_ed25519_60f708ff307c47d946737a4ae6e7e453" >> $BASH_ENV
+            echo "export SSH_FILE_FOR_SECRETS=~/.ssh/id_rsa_debd00dd332c222c709ce0e12b92a50e" >> $BASH_ENV
       - run: &deploy_scripts
           name: cloning deploy scripts
           command: 'git clone git@github.com:ministryofjustice/fb-deploy.git deploy-scripts'
