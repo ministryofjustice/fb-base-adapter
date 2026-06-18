@@ -94,7 +94,12 @@ jobs:
       - run: *deploy_scripts
       - run:
           name: Run acceptance tests
-          command: './deploy-scripts/bin/acceptance_tests'
+          command: |
+            mkdir test-results
+            TEST_FILES=$(circleci tests glob "./deploy-scripts/bin/acceptance_tests/**/test_*.rb")
+            echo "$TEST_FILES" | circleci tests run --command="xargs pytest -o junit_family=legacy --junitxml=test-results/junit.xml" --verbose
+      - store_test_results:
+          path: test-results
       - slack/status:
           only_for_branches: main
           success_message: ":rocket:  Successfully deployed to Test  :guitar:"
@@ -118,7 +123,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - CDPTKAN-1134-rerun-only-failed-tests
       - acceptance_tests:
           context: *moj-forms-context
           requires:
@@ -126,4 +131,4 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - CDPTKAN-1134-rerun-only-failed-tests
