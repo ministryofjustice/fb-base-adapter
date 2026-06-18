@@ -118,7 +118,7 @@ workflows:
           filters:
             branches:
               only:
-                - fixing-pipeline-again
+                - main
       - acceptance_tests:
           context: *moj-forms-context
           requires:
@@ -126,4 +126,4 @@ workflows:
           filters:
             branches:
               only:
-                - fixing-pipeline-again
+                - main
