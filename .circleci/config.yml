@@ -2,6 +2,7 @@ version: 2.1
 orbs:
   slack: circleci/slack@3.4.2
   aws-cli: circleci/aws-cli@4.0.0 # use v4 of this orb
+  browser-tools: circleci/browser-tools@1.4.8
 
 jobs:
   login-to-aws:
@@ -86,15 +87,57 @@ jobs:
           command: './deploy-scripts/bin/deploy-eks'
       - slack/status: *slack_status
   acceptance_tests:
-    docker: *ecr_image
+    docker: *docker_image
     resource_class: large
     steps:
       - checkout
+      - run: sudo apt-get update
       - setup_remote_docker
-      - run: *deploy_scripts
+      - browser-tools/install-chrome:
+          chrome-version: 149.0.7827.200
+      - browser-tools/install-chromedriver
+      - run:
+          name: Check browser tools install
+          command: |
+            google-chrome --version
+            chromedriver --version
+      - run: mkdir ~/rspec
       - run:
           name: Run acceptance tests
-          command: './deploy-scripts/bin/acceptance_tests'
+          environment:
+            CI_MODE: 'true'
+          command: |
+            echo 'Cloning acceptance tests'
+            git clone https://github.com/ministryofjustice/fb-acceptance-tests
+            cd fb-acceptance-tests/integration
+            cp tests.env.ci tests.env
+
+            echo 'Setting up environment variables'
+
+            for var in \
+              GOOGLE_CLIENT_ID \
+              GOOGLE_CLIENT_SECRET \
+              GOOGLE_REFRESH_TOKEN \
+              NEW_RUNNER_ACCEPTANCE_TEST_USER \
+              NEW_RUNNER_ACCEPTANCE_TEST_PASSWORD \
+              MS_LIST_ID \
+              MS_SITE_ID \
+              MS_OAUTH_URL \
+              MS_ADMIN_APP_SECRET \
+              MS_ADMIN_APP_ID \
+              SMOKE_TEST_USER \
+              SMOKE_TEST_PASSWORD
+            do
+              printf '%s=%q\n' "$var" "${!var}" >> tests.env
+            done
+
+            bundle check || bundle install
+
+            circleci tests glob "spec/**/*_spec.rb" | circleci tests run --command="xargs bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml" --verbose --split-by=timings
+      - store_test_results:
+          path: ~/rspec
+      - store_artifacts:
+          path: ~/rspec
       - slack/status:
           only_for_branches: main
           success_message: ":rocket:  Successfully deployed to Test  :guitar:"
