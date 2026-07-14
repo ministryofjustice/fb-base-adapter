@@ -7,7 +7,7 @@ orbs:
 jobs:
   login-to-aws:
     docker: &docker_image
-      - image: 'cimg/ruby:3.3-node'
+      - image: 'cimg/ruby:3.4-node'
     steps:
       - checkout
       - aws-cli/setup:
@@ -27,7 +27,7 @@ jobs:
   tests:
     working_directory: ~/circle
     docker:
-      - image: cimg/ruby:3.3
+      - image: cimg/ruby:3.4
     steps:
       - checkout
       - setup_remote_docker
