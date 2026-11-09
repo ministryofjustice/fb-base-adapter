@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 ruby file: '.ruby-version'
 
 gem 'jwe', '~> 1.1.1'
+gem 'logger'
+gem 'ostruct'
 gem 'pry'
 gem 'rufus-scheduler'
 gem 'sinatra'
