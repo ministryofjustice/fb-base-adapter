@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby file: '.ruby-version'
+
 gem 'jwe', '~> 1.1.1'
 gem 'pry'
 gem 'rufus-scheduler'

@@ -1,4 +1,4 @@
-FROM ruby:3.4.9-alpine
+FROM ruby:4.0.9-alpine
 
 ARG UID=1001
 
@@ -17,7 +17,7 @@ RUN chown appuser:appgroup /app
 
 COPY --chown=appuser:appgroup Gemfile Gemfile.lock ./
 
-RUN gem install bundler
+RUN gem install bundler -v 4.0.24
 
 RUN bundle config set no-cache 'true'
 RUN bundle config set without 'development'
