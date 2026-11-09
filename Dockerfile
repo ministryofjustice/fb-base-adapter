@@ -15,7 +15,7 @@ WORKDIR /app
 
 RUN chown appuser:appgroup /app
 
-COPY --chown=appuser:appgroup Gemfile Gemfile.lock ./
+COPY --chown=appuser:appgroup Gemfile Gemfile.lock .ruby-version ./
 
 RUN gem install bundler -v 4.0.24
 
