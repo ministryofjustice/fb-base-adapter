@@ -16,17 +16,19 @@ GEM
       raabro (~> 1.4)
     jwe (1.1.1)
       base64
+    logger (1.7.0)
     macaddr (1.7.2)
       systemu (~> 2.6.5)
     method_source (1.0.0)
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    ostruct (0.6.3)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     raabro (1.5.0)
-    rack (2.2.14)
+    rack (2.2.25)
     rack-protection (3.1.0)
       rack (~> 2.2, >= 2.2.4)
     rack-test (2.1.0)
@@ -91,6 +93,8 @@ PLATFORMS
 
 DEPENDENCIES
   jwe (~> 1.1.1)
+  logger
+  ostruct
   pry
   rack-test
   rspec
@@ -104,5 +108,8 @@ DEPENDENCIES
   tzinfo-data
   uuid
 
+RUBY VERSION
+  ruby 4.0.9
+
 BUNDLED WITH
-   2.3.26
+  4.0.24

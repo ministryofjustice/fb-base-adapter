@@ -9,6 +9,7 @@ describe 'Submissions' do
     let(:encryption_key) { SecureRandom.uuid[0..15] }
 
     before do
+      allow(ENV).to receive(:[]).and_call_original
       allow(ENV).to receive(:[]).with('ENCRYPTION_KEY').and_return(encryption_key)
     end
 
