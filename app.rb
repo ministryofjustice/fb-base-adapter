@@ -6,8 +6,6 @@ require 'jwe'
 require 'securerandom'
 require 'uuid'
 
-set :app_file, __FILE__
-
 PAYLOAD_CONTENT_FILE = 'tmp/payload_content.json'
 
 helpers do
